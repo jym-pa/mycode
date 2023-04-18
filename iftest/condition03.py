@@ -13,8 +13,8 @@ def main():
         print("The hostname was found to be mtg")
         print("hostname matches expected config")
 
+    # Notifying end of code
+    print ("Exiting script")
+
 if __name__ == "__main__":
     main()
-
-# Notifying end of code
-print ("Exiting script")
