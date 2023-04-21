@@ -11,6 +11,7 @@
 # imports always go at the top of your code
 import requests
 import json
+import pprint
 
 # Define our "base" API
 API = "https://api.magicthegathering.io/v1/" # this will never change regardless of the lookup we perform
@@ -30,11 +31,18 @@ def main():
     # Showing cards output
     print("Showing raw output from cards in json")
     print(cards)
+    print("Showing prettyprinter output")
+    pprint.pprint(cards)
+
 
     # Writing cards output to file - stupid API responds once out of 20 times
     with open (f"mtgcardfile_{setcode}.json", "w") as json_mtgcardfile:
         json_mtgcardfile.write(str(cards))
         json_mtgcardfile.close()
+
+    with open (f"pretty_mtgcardfile_{setcode}.json", "w") as pretty_json_mtgcardfile:
+        pretty_json_mtgcardfile.write(str(cards))
+        pretty_json_mtgcardfile.close()
 
 #    TODO: Parse json_mtgcardfile using json.load
 #          After that, same logic should be usable on data from the API call - resp
