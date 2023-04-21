@@ -32,7 +32,8 @@ def main():
     print("Showing raw output from cards in json")
     print(cards)
     print("Showing prettyprinter output")
-    pprint.pprint(cards)
+    pretty_cards = pprint.pprint(cards)
+    print(pretty_cards)
 
 
     # Writing cards output to file - stupid API responds once out of 20 times
@@ -41,7 +42,7 @@ def main():
         json_mtgcardfile.close()
 
     with open (f"pretty_mtgcardfile_{setcode}.json", "w") as pretty_json_mtgcardfile:
-        pretty_json_mtgcardfile.write(str(cards))
+        pretty_json_mtgcardfile.write(str(pretty_cards))
         pretty_json_mtgcardfile.close()
 
 #    TODO: Parse json_mtgcardfile using json.load
